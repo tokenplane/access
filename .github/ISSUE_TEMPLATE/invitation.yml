@@ -1,0 +1,46 @@
+name: Request an install invitation
+description: Ask for access to the private TokenPlane repository and the install bundle.
+title: "Install invitation request"
+labels: ["invitation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We invite the GitHub account that opens this issue, so there is no username to type.
+        Expect the invitation by email from GitHub, usually the same day.
+  - type: input
+    id: team
+    attributes:
+      label: Team or company
+      description: Optional. Helps us know who is installing.
+      placeholder: Acme platform team
+    validations:
+      required: false
+  - type: dropdown
+    id: clients
+    attributes:
+      label: Which clients do you run?
+      options:
+        - Claude Code
+        - Codex CLI
+        - Both
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Which machine will run it?
+      options:
+        - macOS, Apple Silicon
+        - macOS, Intel
+        - Windows
+        - Linux
+    validations:
+      required: true
+  - type: checkboxes
+    id: ack
+    attributes:
+      label: Pre-release
+      options:
+        - label: I understand TokenPlane is pre-release and that interfaces and schemas may change.
+          required: true
